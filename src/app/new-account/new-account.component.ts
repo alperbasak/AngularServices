@@ -1,22 +1,21 @@
 import {Component} from '@angular/core';
-import {LoggingService} from '../logging.service';
 import {AccountsService} from '../accounts.service';
 
 @Component({
   selector: 'app-new-account',
   templateUrl: './new-account.component.html',
   styleUrls: ['./new-account.component.css'],
-  providers: [LoggingService]
+  // providers: [LoggingService]
 })
 // 1- Add the service as provider
 export class NewAccountComponent {
 
   // 2 - Dependency injection of the service
-  constructor(private loggingService: LoggingService, private accountsService: AccountsService) {
+  constructor(private accountsService: AccountsService) {
   }
 
   onCreateAccount(accountName: string, accountStatus: string): void {
     this.accountsService.addAccount(accountName, accountStatus);
-    this.loggingService.logStatusChange(accountStatus);
+    // this.loggingService.logStatusChange(accountStatus);
   }
 }
