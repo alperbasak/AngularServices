@@ -1,0 +1,10 @@
+<div class="col-xs-12 col-md-8 col-md-offset-2">
+  <h3>Active Users</h3>
+  <hr>
+  <div
+    *ngFor="let acc of activeAccounts; let i = index">
+    {{acc}}
+    <button class="btn btn-default" (click)="onSetInactive(i)">Set to 'inactive'</button>
+    <hr>
+  </div>
+</div>
