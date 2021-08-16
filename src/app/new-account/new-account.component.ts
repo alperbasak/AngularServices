@@ -12,6 +12,10 @@ export class NewAccountComponent {
 
   // 2 - Dependency injection of the service
   constructor(private accountsService: AccountsService) {
+    // communicating with another component over service
+    this.accountsService.statusUpdated.subscribe(
+      (status: string) => alert('New status: ' + status)
+    );
   }
 
   onCreateAccount(accountName: string, accountStatus: string): void {

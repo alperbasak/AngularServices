@@ -20,7 +20,11 @@ export class AccountComponent {
   onSetTo(status: string): void {
     // replace eventEmitter with service
     this.accountsService.updateStatus(this.id, status);
+
     // replace console.log() with service
     // this.loggingService.logStatusChange(status);
+
+    // emit the value for other subscribed components
+    this.accountsService.statusUpdated.emit(status);
   }
 }
